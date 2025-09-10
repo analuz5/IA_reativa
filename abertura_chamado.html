@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abertura de Chamado</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 text-white">
+
+  <!-- Card de Abertura de Chamado -->
+  <div class="bg-gray-900 bg-opacity-70 p-8 rounded-2xl shadow-2xl w-full max-w-md">
+    <h1 class="text-2xl font-bold mb-4 text-center">Abrir Chamado</h1>
+    <p class="mb-6 text-center text-gray-300">Preencha os dados abaixo para registrar seu chamado</p>
+
+    <form id="formChamado" class="space-y-4">
+      <!-- Nome -->
+      <div>
+        <label for="nome" class="block mb-1">Seu nome</label>
+        <input type="text" id="nome" required placeholder="Digite seu nome"
+          class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label for="email" class="block mb-1">Seu e-mail</label>
+        <input type="email" id="email" required placeholder="exemplo@email.com"
+          class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+
+      <!-- Título do Problema -->
+      <div>
+        <label for="titulo" class="block mb-1">Título do Problema</label>
+        <input type="text" id="titulo" required placeholder="Ex: Impressora não imprime"
+          class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+
+      <!-- Descrição -->
+      <div>
+        <label for="descricao" class="block mb-1">Descrição detalhada</label>
+        <textarea id="descricao" required rows="4" placeholder="Explique melhor o problema"
+          class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+      </div>
+
+      <!-- Botão -->
+      <button type="submit"
+        class="w-full bg-blue-600 hover:bg-blue-700 px-4 py-3 rounded-lg font-semibold transition">
+        Enviar Chamado
+      </button>
+    </form>
+
+    <!-- Mensagem de confirmação -->
+    <p id="mensagem" class="mt-4 text-center text-green-400 hidden">✅ Chamado salvo com sucesso!</p>
+
+    <!-- Link para ver chamados -->
+    <div class="mt-4 text-center">
+      <a href="meus_chamados.html" class="text-blue-400 hover:underline">📋 Ver meus chamados</a>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("formChamado");
+    const mensagem = document.getElementById("mensagem");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      // pegar os valores do formulário
+      const chamado = {
+        nome: document.getElementById("nome").value,
+        email: document.getElementById("email").value,
+        titulo: document.getElementById("titulo").value,
+        descricao: document.getElementById("descricao").value,
+        data: new Date().toLocaleString()
+      };
+
+      // recuperar os chamados existentes do LocalStorage
+      let chamados = JSON.parse(localStorage.getItem("chamados")) || [];
+
+      // adicionar o novo chamado
+      chamados.push(chamado);
+
+      // salvar no LocalStorage
+      localStorage.setItem("chamados", JSON.stringify(chamados));
+
+      // feedback pro usuário
+      mensagem.classList.remove("hidden");
+      form.reset();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meus Chamados</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white p-6">
+
+  <h1 class="text-3xl font-bold mb-6 text-center">📋 Meus Chamados</h1>
+
+  <div id="listaChamados" class="space-y-4 max-w-3xl mx-auto"></div>
+
+  <div class="mt-8 text-center">
+    <a href="abertura_chamado.html" class="text-blue-400 hover:underline">➕ Abrir novo chamado</a>
+  </div>
+
+  <script>
+    const lista = document.getElementById("listaChamados");
+    const chamados = JSON.parse(localStorage.getItem("chamados")) || [];
+
+    if (chamados.length === 0) {
+      lista.innerHTML = "<p class='text-center text-gray-400'>Nenhum chamado aberto ainda.</p>";
+    } else {
+      chamados.forEach((c, index) => {
+        const card = document.createElement("div");
+        card.className = "bg-gray-900 bg-opacity-70 p-4 rounded-lg shadow";
+        card.innerHTML = `
+          <h2 class="text-xl font-semibold mb-2">${c.titulo}</h2>
+          <p><strong>Descrição:</strong> ${c.descricao}</p>
+          <p><strong>Nome:</strong> ${c.nome} | <strong>Email:</strong> ${c.email}</p>
+          <p class="text-sm text-gray-400 mt-2">Aberto em: ${c.data}</p>
+        `;
+        lista.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>

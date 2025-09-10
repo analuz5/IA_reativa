@@ -212,60 +212,7 @@
                 <div id="loginError" class="mt-4 text-red-400 text-sm text-center hidden"></div>
             </div>
             
-            <!-- Card de Cadastro -->
-            <div class="glass-card rounded-2xl p-8 fade-in" style="animation-delay: 0.1s;">
-                <div class="text-center mb-8">
-                    <h2 class="text-3xl font-bold text-white mb-2">Cadastrar</h2>
-                    <p class="text-gray-300">Crie sua conta</p>
-                </div>
-                
-                <form id="registerForm" class="space-y-6">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-300 mb-2">Nome</label>
-                        <input 
-                            type="text" 
-                            id="registerName" 
-                            class="glass-input w-full px-4 py-3 rounded-lg text-white placeholder-gray-400 transition-all duration-200" 
-                            placeholder="Seu nome completo"
-                            required
-                        >
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-300 mb-2">Email</label>
-                        <input 
-                            type="email" 
-                            id="registerEmail" 
-                            class="glass-input w-full px-4 py-3 rounded-lg text-white placeholder-gray-400 transition-all duration-200" 
-                            placeholder="seu@email.com"
-                            required
-                        >
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-gray-300 mb-2">Senha</label>
-                        <input 
-                            type="password" 
-                            id="registerPassword" 
-                            class="glass-input w-full px-4 py-3 rounded-lg text-white placeholder-gray-400 transition-all duration-200" 
-                            placeholder="Digite sua senha"
-                            required
-                        >
-                    </div>
-                    
-                    <button 
-                        type="submit" 
-                        id="registerBtn"
-                        class="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-semibold py-3 rounded-lg transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                        <span id="registerBtnText">Cadastrar</span>
-                        <div id="registerSpinner" class="loading-spinner mx-auto hidden"></div>
-                    </button>
-                </form>
-                
-                <div id="registerError" class="mt-4 text-red-400 text-sm text-center hidden"></div>
-                <div id="registerSuccess" class="mt-4 text-green-400 text-sm text-center hidden"></div>
-            </div>
+            
         </div>
     </div>
     
@@ -379,67 +326,8 @@
             }
         });
         
-        // Cadastro
-        registerForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const name = document.getElementById('registerName').value;
-            const email = document.getElementById('registerEmail').value;
-            const password = document.getElementById('registerPassword').value;
-            
-            setLoading('registerBtn', 'registerSpinner', 'registerBtnText', true);
-            
-            try {
-                const { data, error } = await supabaseClient.auth.signUp({
-                    email: email,
-                    password: password,
-                    options: {
-                        data: {
-                            name: name
-                        }
-                    }
-                });
-                
-                if (error) {
-                    throw error;
-                }
-                
-                // Cadastro bem-sucedido
-                console.log('Cadastro realizado:', data);
-                showSuccess('registerSuccess', 'Cadastro realizado! Verifique seu email para confirmar a conta.');
-                registerForm.reset();
-                
-            } catch (error) {
-                console.error('Erro no cadastro:', error);
-                showError('registerError', error.message || 'Erro ao cadastrar');
-            } finally {
-                setLoading('registerBtn', 'registerSpinner', 'registerBtnText', false);
-            }
-        });
         
-        // REMOVIDO: Verificação automática de sessão que causava redirecionamento
-        // Agora só redireciona após login explícito
-
-        // Opcional: Log para debug quando há mudança de estado
-        supabaseClient.auth.onAuthStateChange((event, session) => {
-            console.log('Auth state change:', event, session ? 'Session exists' : 'No session');
-            
-            // Só redireciona se foi um SIGNED_IN (login ativo, não sessão existente)
-            if (event === 'SIGNED_IN' && session) {
-                console.log('Usuário fez login:', session.user.email);
-            }
-        });
-
-        // Debug: Mostrar informação sobre sessão atual (apenas para desenvolvimento)
-        console.log('Verificando sessão atual...');
-        supabaseClient.auth.getSession().then(({ data: { session } }) => {
-            if (session) {
-                console.log('⚠️ Sessão ativa encontrada para:', session.user.email);
-                console.log('💡 Use o botão "Limpar Sessão" se quiser fazer novo login');
-            } else {
-                console.log('✅ Nenhuma sessão ativa encontrada');
-            }
-        });
+       
     </script>
 </body>
 </html>
