@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,8 +85,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Loading */
@@ -99,8 +107,13 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         /* Modal */
@@ -116,13 +129,40 @@
             font-weight: 600;
         }
 
-        .status-ativo { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
-        .status-alugado { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
-        .status-estacionamento { background: rgba(156, 163, 175, 0.2); color: #9ca3af; }
-        .status-problemas { background: rgba(239, 68, 68, 0.2); color: #ef4444; }
-        .status-pendente { background: rgba(245, 158, 11, 0.2); color: #f59e0b; }
-        .status-pago { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
-        .status-finalizado { background: rgba(107, 114, 128, 0.2); color: #6b7280; }
+        .status-ativo {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+        }
+
+        .status-alugado {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+        }
+
+        .status-estacionamento {
+            background: rgba(156, 163, 175, 0.2);
+            color: #9ca3af;
+        }
+
+        .status-problemas {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+
+        .status-pendente {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+        }
+
+        .status-pago {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+        }
+
+        .status-finalizado {
+            background: rgba(107, 114, 128, 0.2);
+            color: #6b7280;
+        }
 
         /* Tables */
         .table-container {
@@ -144,14 +184,7 @@
             border-radius: 3px;
         }
 
-        /* Session info */
-        .session-info {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            padding: 8px 12px;
-            font-size: 12px;
-            color: #9ca3af;
-        }
+        
 
         /* Loading spinner para logout */
         .loading-spinner {
@@ -169,8 +202,15 @@
         }
 
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Animação de fade out */
@@ -179,8 +219,13 @@
         }
 
         @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
         }
 
         /* Success message */
@@ -206,6 +251,7 @@
         }
     </style>
 </head>
+
 <body class="min-h-screen text-white">
 
     <img src="img/Gradient.png" alt="" class="background-image flex items-end">
@@ -216,18 +262,17 @@
             <!-- Logo -->
             <div class="flex items-center space-x-4">
                 <div class="w-15 h-15 rounded-lg flex items-center justify-center">
-                    <img src="img/Logo - Fatec - Motor Control.png" class="max-w-xs max-h-10">
+                    <a>IA Service Desk</a>
                 </div>
             </div>
 
             <!-- User info e logout -->
             <div class="flex items-center space-x-4">
-                <div class="session-info">
-                    Sessão: <span id="sessionTime">00:00</span>
-                </div>
-                <span class="text-gray-300">Bem-vindo, <span id="userName" class="font-semibold">Usuário</span></span>
-                <button id="logoutBtn" class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg transition-all duration-200 flex items-center space-x-2">
-                    <span id="logoutText">Sair</span>
+                
+                <span class="text-gray-300">Bem-vindo, <span id="userName" class="font-semibold">Técnico</span></span>
+                <button id="logoutBtn"
+                    class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg transition-all duration-200 flex items-center space-x-2">
+                    <a id="logoutText" href="index.html">Sair</a>
                     <div id="logoutSpinner" class="loading hidden"></div>
                 </button>
             </div>
@@ -237,39 +282,36 @@
     <!-- Sidebar -->
     <nav class="sidebar fixed left-0 top-16 h-full w-64 p-4 z-40">
         <div class="space-y-2 mt-4">
-            <button class="sidebar-item active w-full text-left px-4 py-3 rounded-lg flex items-center space-x-3" data-section="dashboard">
+            <button class="sidebar-item active w-full text-left px-4 py-3 rounded-lg flex items-center space-x-3"
+                data-section="dashboard">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                    <path
+                        d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z">
+                    </path>
                 </svg>
                 <span>Dashboard</span>
             </button>
 
-            <button class="sidebar-item w-full text-left px-4 py-3 rounded-lg flex items-center space-x-3" data-section="clientes">
+            <button class="sidebar-item w-full text-left px-4 py-3 rounded-lg flex items-center space-x-3"
+                data-section="clientes">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path>
+                    <path
+                        d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z">
+                    </path>
                 </svg>
                 <span>Clientes</span>
             </button>
 
-            <button class="sidebar-item w-full text-left px-4 py-3 rounded-lg flex items-center space-x-3" data-section="veiculos">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M4 5a2 2 0 00-2 2v6H0v2a2 2 0 002 2h1a3 3 0 006 0h2a3 3 0 006 0h1a2 2 0 002-2v-2h-2V7a2 2 0 00-2-2H4zm2.5 8a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm8 0a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" clip-rule="evenodd"></path>
-                </svg>
-                <span>Veículos</span>
-            </button>
 
-            <button class="sidebar-item w-full text-left px-4 py-3 rounded-lg flex items-center space-x-3" data-section="alugueis">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
-                </svg>
-                <span>Aluguéis</span>
-            </button>
 
-            <button class="sidebar-item w-full text-left px-4 py-3 rounded-lg flex items-center space-x-3" data-section="infracoes">
+            <button class="sidebar-item w-full text-left px-4 py-3 rounded-lg flex items-center space-x-3"
+                data-section="infracoes">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                    <path fill-rule="evenodd"
+                        d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
+                        clip-rule="evenodd"></path>
                 </svg>
-                <span>Infrações</span>
+                <span>Documentação</span>
             </button>
         </div>
     </nav>
@@ -282,83 +324,48 @@
         <!-- Dashboard Section -->
         <div id="dashboard-section" class="section">
             <div class="glass rounded-2xl p-8 mb-8 fade-in">
-                <h2 class="text-3xl font-bold mb-6">Dashboard</h2>
-                
-                <!-- Stats Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                    <div class="glass rounded-xl p-6">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-gray-400 text-sm">Total Clientes</p>
-                                <p class="text-3xl font-bold" id="totalClientes">0</p>
-                            </div>
-                            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"></path>
-                                </svg>
-                            </div>
+
+
+                <div class="p-6">
+                    <h1 class="text-3xl font-bold mb-6">Dashboard de Chamados</h1>
+
+                    <!-- Cards de status -->
+                    <div class="grid grid-cols-4 gap-6 mb-8">
+                        <div class="bg-blue-600 text-white rounded-xl p-4 shadow-md flex flex-col items-center">
+                            <span class="text-lg font-bold">Total Chamados</span>
+                            <span id="total-chamados" class="text-3xl mt-2">0</span>
+                        </div>
+                        <div class="bg-yellow-500 text-white rounded-xl p-4 shadow-md flex flex-col items-center">
+                            <span class="text-lg font-bold">Em Andamento</span>
+                            <span id="chamados-andamento" class="text-3xl mt-2">0</span>
+                        </div>
+                        <div class="bg-green-600 text-white rounded-xl p-4 shadow-md flex flex-col items-center">
+                            <span class="text-lg font-bold">Resolvidos</span>
+                            <span id="chamados-resolvidos" class="text-3xl mt-2">0</span>
+                        </div>
+                        <div class="bg-red-600 text-white rounded-xl p-4 shadow-md flex flex-col items-center">
+                            <span class="text-lg font-bold">Com Problemas</span>
+                            <span id="chamados-problemas" class="text-3xl mt-2">0</span>
                         </div>
                     </div>
-                    
-                    <div class="glass rounded-xl p-6">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-gray-400 text-sm">Carros Alugados</p>
-                                <p class="text-3xl font-bold" id="carrosAlugados">0</p>
-                            </div>
-                            <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M4 5a2 2 0 00-2 2v6H0v2a2 2 0 002 2h1a3 3 0 006 0h2a3 3 0 006 0h1a2 2 0 002-2v-2h-2V7a2 2 0 00-2-2H4zm2.5 8a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm8 0a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" clip-rule="evenodd"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="glass rounded-xl p-6">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-gray-400 text-sm">No Estacionamento</p>
-                                <p class="text-3xl font-bold" id="carrosEstacionamento">0</p>
-                            </div>
-                            <div class="w-12 h-12 bg-gray-600 rounded-lg flex items-center justify-center">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="glass rounded-xl p-6">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="text-gray-400 text-sm">Com Problemas</p>
-                                <p class="text-3xl font-bold" id="carrosProblemas">0</p>
-                            </div>
-                            <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center">
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
+
+
                 </div>
-                
+
+
                 <!-- Ações Rápidas -->
                 <div class="glass rounded-xl p-6">
-                    <h3 class="text-xl font-bold mb-4">Ações Rápidas</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                        <button onclick="CRMApp.showSection('clientes')" class="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg transition-all duration-200 transform hover:scale-105">
-                            Novo Cliente
-                        </button>
-                        <button onclick="CRMApp.showSection('veiculos')" class="bg-green-600 hover:bg-green-700 px-6 py-3 rounded-lg transition-all duration-200 transform hover:scale-105">
-                            Cadastrar Veículo
-                        </button>
-                        <button onclick="CRMApp.openAluguelModal()" class="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-lg transition-all duration-200 transform hover:scale-105">
-                            Novo Aluguel
-                        </button>
-                        <button onclick="CRMApp.showSection('infracoes')" class="bg-orange-600 hover:bg-orange-700 px-6 py-3 rounded-lg transition-all duration-200 transform hover:scale-105">
-                            Registrar Infração
-                        </button>
+                    <!-- Ações rápidas -->
+                    <h2 class="text-xl font-semibold mb-4">Ações Rápidas</h2>
+                    <div class="flex gap-4">
+                        <a href="pre_chamado.html"
+                            class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md font-bold">Novo
+                            Chamado</a>
+                        <a href="#"
+                            class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg shadow-md font-bold">Atender
+                            Chamados</a>
+                        <a href="#"
+                            class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg shadow-md font-bold">Histórico</a>
                     </div>
                 </div>
             </div>
@@ -369,11 +376,12 @@
             <div class="glass rounded-2xl p-8 fade-in">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-3xl font-bold">Gestão de Clientes</h2>
-                    <button onclick="CRMApp.openClienteModal()" class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg transition-all duration-200">
+                    <button onclick="CRMApp.openClienteModal()"
+                        class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg transition-all duration-200">
                         + Novo Cliente
                     </button>
                 </div>
-                
+
                 <div class="table-container">
                     <table class="w-full">
                         <thead>
@@ -398,11 +406,12 @@
             <div class="glass rounded-2xl p-8 fade-in">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-3xl font-bold">Gestão de Veículos</h2>
-                    <button onclick="CRMApp.openVeiculoModal()" class="bg-green-600 hover:bg-green-700 px-6 py-2 rounded-lg transition-all duration-200">
+                    <button onclick="CRMApp.openVeiculoModal()"
+                        class="bg-green-600 hover:bg-green-700 px-6 py-2 rounded-lg transition-all duration-200">
                         + Novo Veículo
                     </button>
                 </div>
-                
+
                 <div class="table-container">
                     <table class="w-full">
                         <thead>
@@ -427,11 +436,12 @@
             <div class="glass rounded-2xl p-8 fade-in">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-3xl font-bold">Gestão de Aluguéis</h2>
-                    <button onclick="CRMApp.openAluguelModal()" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-lg transition-all duration-200">
+                    <button onclick="CRMApp.openAluguelModal()"
+                        class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-lg transition-all duration-200">
                         + Novo Aluguel
                     </button>
                 </div>
-                
+
                 <div class="table-container">
                     <table class="w-full">
                         <thead>
@@ -458,11 +468,12 @@
             <div class="glass rounded-2xl p-8 fade-in">
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-3xl font-bold">Gestão de Infrações</h2>
-                    <button onclick="CRMApp.openInfracaoModal()" class="bg-orange-600 hover:bg-orange-700 px-6 py-2 rounded-lg transition-all duration-200">
+                    <button onclick="CRMApp.openInfracaoModal()"
+                        class="bg-orange-600 hover:bg-orange-700 px-6 py-2 rounded-lg transition-all duration-200">
                         + Nova Infração
                     </button>
                 </div>
-                
+
                 <div class="table-container">
                     <table class="w-full">
                         <thead>
@@ -485,7 +496,8 @@
     </main>
 
     <!-- Modal Cliente -->
-    <div id="clienteModal" class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop flex items-center justify-center z-50 hidden">
+    <div id="clienteModal"
+        class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop flex items-center justify-center z-50 hidden">
         <div class="glass rounded-2xl p-8 max-w-2xl w-full mx-4 max-h-screen overflow-y-auto">
             <div class="flex justify-between items-center mb-6">
                 <h3 class="text-2xl font-bold" id="clienteModalTitle">Cadastro de Cliente</h3>
@@ -504,7 +516,7 @@
                         <input type="text" id="rgCpf" class="glass-input w-full px-4 py-2 rounded-lg" required>
                     </div>
                 </div>
-                
+
                 <div class="grid md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium mb-2">Data de Nascimento *</label>
@@ -520,7 +532,7 @@
                         </select>
                     </div>
                 </div>
-                
+
                 <div class="grid md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium mb-2">Data de Retirada</label>
@@ -531,7 +543,7 @@
                         <input type="date" id="dataDevolucao" class="glass-input w-full px-4 py-2 rounded-lg">
                     </div>
                 </div>
-                
+
                 <div>
                     <label class="block text-sm font-medium mb-2">Forma de Pagamento *</label>
                     <select id="formaPagamento" class="glass-input w-full px-4 py-2 rounded-lg" required>
@@ -543,12 +555,14 @@
                         <option value="Transferência">Transferência Bancária</option>
                     </select>
                 </div>
-                
+
                 <div class="flex justify-end space-x-4 pt-4">
-                    <button type="button" onclick="CRMApp.closeModal('clienteModal')" class="bg-gray-600 hover:bg-gray-700 px-6 py-2 rounded-lg">
+                    <button type="button" onclick="CRMApp.closeModal('clienteModal')"
+                        class="bg-gray-600 hover:bg-gray-700 px-6 py-2 rounded-lg">
                         Cancelar
                     </button>
-                    <button type="submit" class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg flex items-center space-x-2">
+                    <button type="submit"
+                        class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-lg flex items-center space-x-2">
                         <span id="clienteSubmitText">Salvar Cliente</span>
                         <div id="clienteSubmitSpinner" class="loading hidden"></div>
                     </button>
@@ -558,7 +572,8 @@
     </div>
 
     <!-- Modal Veículo -->
-    <div id="veiculoModal" class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop flex items-center justify-center z-50 hidden">
+    <div id="veiculoModal"
+        class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop flex items-center justify-center z-50 hidden">
         <div class="glass rounded-2xl p-8 max-w-2xl w-full mx-4">
             <div class="flex justify-between items-center mb-6">
                 <h3 class="text-2xl font-bold" id="veiculoModalTitle">Cadastro de Veículo</h3>
@@ -577,11 +592,12 @@
                         <input type="text" id="modelo" class="glass-input w-full px-4 py-2 rounded-lg" required>
                     </div>
                 </div>
-                
+
                 <div class="grid md:grid-cols-3 gap-4">
                     <div>
                         <label class="block text-sm font-medium mb-2">Ano *</label>
-                        <input type="number" id="ano" min="1990" max="2025" class="glass-input w-full px-4 py-2 rounded-lg" required>
+                        <input type="number" id="ano" min="1990" max="2025"
+                            class="glass-input w-full px-4 py-2 rounded-lg" required>
                     </div>
                     <div>
                         <label class="block text-sm font-medium mb-2">Placa *</label>
@@ -592,12 +608,14 @@
                         <input type="text" id="cor" class="glass-input w-full px-4 py-2 rounded-lg" required>
                     </div>
                 </div>
-                
+
                 <div class="flex justify-end space-x-4 pt-4">
-                    <button type="button" onclick="CRMApp.closeModal('veiculoModal')" class="bg-gray-600 hover:bg-gray-700 px-6 py-2 rounded-lg">
+                    <button type="button" onclick="CRMApp.closeModal('veiculoModal')"
+                        class="bg-gray-600 hover:bg-gray-700 px-6 py-2 rounded-lg">
                         Cancelar
                     </button>
-                    <button type="submit" class="bg-green-600 hover:bg-green-700 px-6 py-2 rounded-lg flex items-center space-x-2">
+                    <button type="submit"
+                        class="bg-green-600 hover:bg-green-700 px-6 py-2 rounded-lg flex items-center space-x-2">
                         <span id="veiculoSubmitText">Salvar Veículo</span>
                         <div id="veiculoSubmitSpinner" class="loading hidden"></div>
                     </button>
@@ -607,7 +625,8 @@
     </div>
 
     <!-- Modal Aluguel -->
-    <div id="aluguelModal" class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop flex items-center justify-center z-50 hidden">
+    <div id="aluguelModal"
+        class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop flex items-center justify-center z-50 hidden">
         <div class="glass rounded-2xl p-8 max-w-2xl w-full mx-4">
             <div class="flex justify-between items-center mb-6">
                 <h3 class="text-2xl font-bold" id="aluguelModalTitle">Novo Aluguel</h3>
@@ -630,7 +649,7 @@
                         </select>
                     </div>
                 </div>
-                
+
                 <div class="grid md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium mb-2">Data Início *</label>
@@ -641,17 +660,20 @@
                         <input type="date" id="dataFim" class="glass-input w-full px-4 py-2 rounded-lg" required>
                     </div>
                 </div>
-                
+
                 <div>
                     <label class="block text-sm font-medium mb-2">Valor Total *</label>
-                    <input type="number" step="0.01" id="valorTotal" class="glass-input w-full px-4 py-2 rounded-lg" required>
+                    <input type="number" step="0.01" id="valorTotal" class="glass-input w-full px-4 py-2 rounded-lg"
+                        required>
                 </div>
-                
+
                 <div class="flex justify-end space-x-4 pt-4">
-                    <button type="button" onclick="CRMApp.closeModal('aluguelModal')" class="bg-gray-600 hover:bg-gray-700 px-6 py-2 rounded-lg">
+                    <button type="button" onclick="CRMApp.closeModal('aluguelModal')"
+                        class="bg-gray-600 hover:bg-gray-700 px-6 py-2 rounded-lg">
                         Cancelar
                     </button>
-                    <button type="submit" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-lg flex items-center space-x-2">
+                    <button type="submit"
+                        class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-lg flex items-center space-x-2">
                         <span id="aluguelSubmitText">Confirmar Aluguel</span>
                         <div id="aluguelSubmitSpinner" class="loading hidden"></div>
                     </button>
@@ -661,7 +683,8 @@
     </div>
 
     <!-- Modal Infração -->
-    <div id="infracaoModal" class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop flex items-center justify-center z-50 hidden">
+    <div id="infracaoModal"
+        class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop flex items-center justify-center z-50 hidden">
         <div class="glass rounded-2xl p-8 max-w-2xl w-full mx-4">
             <div class="flex justify-between items-center mb-6">
                 <h3 class="text-2xl font-bold">Registrar Infração</h3>
@@ -675,7 +698,7 @@
                         <option value="">Selecione um aluguel ativo</option>
                     </select>
                 </div>
-                
+
                 <div class="grid md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium mb-2">Tipo de Infração *</label>
@@ -694,22 +717,26 @@
                         <input type="date" id="dataInfracao" class="glass-input w-full px-4 py-2 rounded-lg" required>
                     </div>
                 </div>
-                
+
                 <div>
                     <label class="block text-sm font-medium mb-2">Valor da Multa *</label>
-                    <input type="number" step="0.01" id="valorInfracao" class="glass-input w-full px-4 py-2 rounded-lg" required>
+                    <input type="number" step="0.01" id="valorInfracao" class="glass-input w-full px-4 py-2 rounded-lg"
+                        required>
                 </div>
-                
+
                 <div>
                     <label class="block text-sm font-medium mb-2">Descrição</label>
-                    <textarea id="descricaoInfracao" rows="3" class="glass-input w-full px-4 py-2 rounded-lg"></textarea>
+                    <textarea id="descricaoInfracao" rows="3"
+                        class="glass-input w-full px-4 py-2 rounded-lg"></textarea>
                 </div>
-                
+
                 <div class="flex justify-end space-x-4 pt-4">
-                    <button type="button" onclick="CRMApp.closeModal('infracaoModal')" class="bg-gray-600 hover:bg-gray-700 px-6 py-2 rounded-lg">
+                    <button type="button" onclick="CRMApp.closeModal('infracaoModal')"
+                        class="bg-gray-600 hover:bg-gray-700 px-6 py-2 rounded-lg">
                         Cancelar
                     </button>
-                    <button type="submit" class="bg-orange-600 hover:bg-orange-700 px-6 py-2 rounded-lg flex items-center space-x-2">
+                    <button type="submit"
+                        class="bg-orange-600 hover:bg-orange-700 px-6 py-2 rounded-lg flex items-center space-x-2">
                         <span id="infracaoSubmitText">Registrar Infração</span>
                         <div id="infracaoSubmitSpinner" class="loading hidden"></div>
                     </button>
@@ -719,12 +746,13 @@
     </div>
 
     <!-- Modal de Confirmação -->
-    <div id="confirmModal" class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop flex items-center justify-center z-50 hidden">
+    <div id="confirmModal"
+        class="fixed inset-0 bg-black bg-opacity-50 modal-backdrop flex items-center justify-center z-50 hidden">
         <div class="glass rounded-2xl p-8 max-w-md w-full mx-4">
             <div class="text-center">
                 <h3 class="text-xl font-bold mb-4" id="confirmTitle">Confirmar Ação</h3>
                 <p class="text-gray-300 mb-6" id="confirmMessage">Tem certeza que deseja continuar?</p>
-                
+
                 <div class="flex justify-center space-x-4">
                     <button id="confirmCancel" class="bg-gray-600 hover:bg-gray-700 px-6 py-2 rounded-lg">
                         Cancelar
@@ -737,1056 +765,28 @@
         </div>
     </div>
 
-    <!-- Modal de Loading Logout -->
-    <div id="logoutLoadingModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="glass rounded-2xl p-8 text-center slide-up">
-            <div class="loading-spinner mx-auto mb-4"></div>
-            <p class="text-white text-lg">Saindo do sistema...</p>
-        </div>
-    </div>
+    
 
     <script>
-        // CONFIGURAÇÃO DO SUPABASE
-        const SUPABASE_URL = 'https://zvzssttrdoutwmsdaptp.supabase.com';
-        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp2enNzdHRyZG91dHdtc2RhcHRwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk1OTczMTksImV4cCI6MjA2NTE3MzMxOX0.Qb6bM8nKjsVRxD5bTMRst3T2efVUNw2oFEhBYl2jAaI';
-        http://localhost:5500
+document.addEventListener("DOMContentLoaded", () => {
+  // Recupera os chamados salvos no localStorage
+  const chamados = JSON.parse(localStorage.getItem("meus_chamados")) || [];
 
-        // Inicializar Supabase
-        const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  // Atualiza os cards
+  document.getElementById("total-chamados").innerText = chamados.length;
 
-        // SISTEMA CRM - Objeto principal para organizar todas as funções
-        const CRMApp = {
-            currentUser: null,
-            sessionStartTime: new Date(),
-            editingItem: null,
+  document.getElementById("chamados-andamento").innerText = 
+    chamados.filter(c => c.status && c.status === "Em andamento").length;
 
-            // SISTEMA DE MENSAGENS
-            showMessage(message, type = 'success') {
-                const container = document.getElementById('messageContainer');
-                const messageDiv = document.createElement('div');
-                messageDiv.className = `${type}-message`;
-                messageDiv.textContent = message;
-                
-                container.appendChild(messageDiv);
-                
-                // Remover após 5 segundos
-                setTimeout(() => {
-                    if (messageDiv.parentNode) {
-                        messageDiv.parentNode.removeChild(messageDiv);
-                    }
-                }, 5000);
-            },
+  document.getElementById("chamados-resolvidos").innerText = 
+    chamados.filter(c => c.status && c.status === "Resolvido").length;
 
-            // SISTEMA DE CONFIRMAÇÃO
-            showConfirmDialog(title, message, onConfirm) {
-                const modal = document.getElementById('confirmModal');
-                const titleEl = document.getElementById('confirmTitle');
-                const messageEl = document.getElementById('confirmMessage');
-                const cancelBtn = document.getElementById('confirmCancel');
-                const okBtn = document.getElementById('confirmOk');
-                
-                titleEl.textContent = title;
-                messageEl.textContent = message;
-                
-                // Remove event listeners anteriores
-                const newCancelBtn = cancelBtn.cloneNode(true);
-                const newOkBtn = okBtn.cloneNode(true);
-                cancelBtn.parentNode.replaceChild(newCancelBtn, cancelBtn);
-                okBtn.parentNode.replaceChild(newOkBtn, okBtn);
-                
-                // Adiciona novos event listeners
-                newCancelBtn.addEventListener('click', () => {
-                    modal.classList.add('hidden');
-                });
-                
-                newOkBtn.addEventListener('click', () => {
-                    modal.classList.add('hidden');
-                    onConfirm();
-                });
-                
-                modal.classList.remove('hidden');
-            },
+  document.getElementById("chamados-problemas").innerText = 
+    chamados.filter(c => c.status && c.status === "Com Problemas").length;
+});
+</script>
 
-            // SISTEMA DE NAVEGAÇÃO
-            showSection(sectionName) {
-                // Esconder todas as seções
-                document.querySelectorAll('.section').forEach(section => {
-                    section.classList.add('hidden');
-                });
-                
-                // Mostrar seção selecionada
-                document.getElementById(sectionName + '-section').classList.remove('hidden');
-                
-                // Atualizar sidebar
-                document.querySelectorAll('.sidebar-item').forEach(item => {
-                    item.classList.remove('active');
-                });
-                document.querySelector(`[data-section="${sectionName}"]`).classList.add('active');
-                
-                // Carregar dados da seção
-                this.loadSectionData(sectionName);
-            },
 
-            // CARREGAR DADOS POR SEÇÃO
-            async loadSectionData(sectionName) {
-                switch(sectionName) {
-                    case 'dashboard':
-                        await this.loadDashboardStats();
-                        break;
-                    case 'clientes':
-                        await this.loadClientes();
-                        break;
-                    case 'veiculos':
-                        await this.loadVeiculos();
-                        break;
-                    case 'alugueis':
-                        await this.loadAlugueis();
-                        break;
-                    case 'infracoes':
-                        await this.loadInfracoes();
-                        break;
-                }
-            },
-
-            // CARREGAR ESTATÍSTICAS DO DASHBOARD - FUNCIONAL
-            async loadDashboardStats() {
-                try {
-                    // Contar clientes
-                    const { count: clientesCount } = await supabaseClient
-                        .from('clientes')
-                        .select('*', { count: 'exact', head: true });
-                    
-                    // Contar veículos por status
-                    const { data: veiculos } = await supabaseClient
-                        .from('veiculos')
-                        .select('status');
-                    
-                    const alugados = veiculos?.filter(v => v.status === 'alugado').length || 0;
-                    const estacionamento = veiculos?.filter(v => v.status === 'estacionamento').length || 0;
-                    const problemas = veiculos?.filter(v => v.status === 'problemas').length || 0;
-                    
-                    // Atualizar interface
-                    document.getElementById('totalClientes').textContent = clientesCount || 0;
-                    document.getElementById('carrosAlugados').textContent = alugados;
-                    document.getElementById('carrosEstacionamento').textContent = estacionamento;
-                    document.getElementById('carrosProblemas').textContent = problemas;
-                    
-                } catch (error) {
-                    console.error('Erro ao carregar estatísticas:', error);
-                    // Valores padrão em caso de erro
-                    document.getElementById('totalClientes').textContent = '0';
-                    document.getElementById('carrosAlugados').textContent = '0';
-                    document.getElementById('carrosEstacionamento').textContent = '0';
-                    document.getElementById('carrosProblemas').textContent = '0';
-                }
-            },
-
-            // SISTEMA DE MODAIS
-            openClienteModal(clienteId = null) {
-                this.editingItem = clienteId;
-                const modal = document.getElementById('clienteModal');
-                const title = document.getElementById('clienteModalTitle');
-                const submitText = document.getElementById('clienteSubmitText');
-                
-                if (clienteId) {
-                    title.textContent = 'Editar Cliente';
-                    submitText.textContent = 'Atualizar Cliente';
-                    this.loadClienteData(clienteId);
-                } else {
-                    title.textContent = 'Cadastro de Cliente';
-                    submitText.textContent = 'Salvar Cliente';
-                    this.clearClienteForm();
-                }
-                
-                modal.classList.remove('hidden');
-            },
-
-            openVeiculoModal(veiculoId = null) {
-                this.editingItem = veiculoId;
-                const modal = document.getElementById('veiculoModal');
-                const title = document.getElementById('veiculoModalTitle');
-                const submitText = document.getElementById('veiculoSubmitText');
-                
-                if (veiculoId) {
-                    title.textContent = 'Editar Veículo';
-                    submitText.textContent = 'Atualizar Veículo';
-                    this.loadVeiculoData(veiculoId);
-                } else {
-                    title.textContent = 'Cadastro de Veículo';
-                    submitText.textContent = 'Salvar Veículo';
-                    this.clearVeiculoForm();
-                }
-                
-                modal.classList.remove('hidden');
-            },
-
-            async openAluguelModal() {
-                await this.loadClientesSelect();
-                await this.loadVeiculosSelect();
-                document.getElementById('aluguelModal').classList.remove('hidden');
-            },
-
-            async openInfracaoModal() {
-                await this.loadAlugueisAtivos();
-                document.getElementById('infracaoModal').classList.remove('hidden');
-            },
-
-            closeModal(modalId) {
-                document.getElementById(modalId).classList.add('hidden');
-                this.editingItem = null;
-                // Limpar formulários
-                const form = document.querySelector(`#${modalId} form`);
-                if (form) form.reset();
-            },
-
-            // CARREGAR DADOS PARA EDIÇÃO
-            async loadClienteData(clienteId) {
-                try {
-                    const { data: cliente, error } = await supabaseClient
-                        .from('clientes')
-                        .select('*')
-                        .eq('id', clienteId)
-                        .single();
-                    
-                    if (error) throw error;
-                    
-                    document.getElementById('clienteId').value = cliente.id;
-                    document.getElementById('nomeCompleto').value = cliente.nome_completo || '';
-                    document.getElementById('rgCpf').value = cliente.rg_cpf || '';
-                    document.getElementById('dataNascimento').value = cliente.data_nascimento || '';
-                    document.getElementById('plano').value = cliente.plano || '';
-                    document.getElementById('dataRetirada').value = cliente.data_retirada || '';
-                    document.getElementById('dataDevolucao').value = cliente.data_devolucao || '';
-                    document.getElementById('formaPagamento').value = cliente.forma_pagamento || '';
-                    
-                } catch (error) {
-                    console.error('Erro ao carregar dados do cliente:', error);
-                    this.showMessage('Erro ao carregar dados do cliente', 'error');
-                }
-            },
-
-            async loadVeiculoData(veiculoId) {
-                try {
-                    const { data: veiculo, error } = await supabaseClient
-                        .from('veiculos')
-                        .select('*')
-                        .eq('id', veiculoId)
-                        .single();
-                    
-                    if (error) throw error;
-                    
-                    document.getElementById('veiculoId').value = veiculo.id;
-                    document.getElementById('marca').value = veiculo.marca || '';
-                    document.getElementById('modelo').value = veiculo.modelo || '';
-                    document.getElementById('ano').value = veiculo.ano || '';
-                    document.getElementById('placa').value = veiculo.placa || '';
-                    document.getElementById('cor').value = veiculo.cor || '';
-                    
-                } catch (error) {
-                    console.error('Erro ao carregar dados do veículo:', error);
-                    this.showMessage('Erro ao carregar dados do veículo', 'error');
-                }
-            },
-
-            // LIMPAR FORMULÁRIOS
-            clearClienteForm() {
-                document.getElementById('clienteId').value = '';
-                document.getElementById('clienteForm').reset();
-            },
-
-            clearVeiculoForm() {
-                document.getElementById('veiculoId').value = '';
-                document.getElementById('veiculoForm').reset();
-            },
-
-            // CRUD CLIENTES - FUNCIONAL
-            async loadClientes() {
-                try {
-                    const { data: clientes, error } = await supabaseClient
-                        .from('clientes')
-                        .select('*')
-                        .order('created_at', { ascending: false });
-                    
-                    if (error) throw error;
-                    
-                    const tbody = document.getElementById('clientesTableBody');
-                    tbody.innerHTML = '';
-                    
-                    if (!clientes || clientes.length === 0) {
-                        tbody.innerHTML = '<tr><td colspan="5" class="p-3 text-center text-gray-400">Nenhum cliente cadastrado</td></tr>';
-                        return;
-                    }
-                    
-                    clientes.forEach(cliente => {
-                        const tr = document.createElement('tr');
-                        tr.className = 'border-b border-gray-700 hover:bg-white hover:bg-opacity-5';
-                        tr.innerHTML = `
-                            <td class="p-3">${cliente.nome_completo}</td>
-                            <td class="p-3">${cliente.rg_cpf}</td>
-                            <td class="p-3">${cliente.plano}</td>
-                            <td class="p-3">
-                                <span class="status-badge status-${cliente.status || 'ativo'}">${cliente.status || 'ativo'}</span>
-                            </td>
-                            <td class="p-3">
-                                <button onclick="CRMApp.openClienteModal('${cliente.id}')" class="text-blue-400 hover:text-blue-300 mr-2">Editar</button>
-                                <button onclick="CRMApp.deleteCliente('${cliente.id}')" class="text-red-400 hover:text-red-300">Excluir</button>
-                            </td>
-                        `;
-                        tbody.appendChild(tr);
-                    });
-                    
-                } catch (error) {
-                    console.error('Erro ao carregar clientes:', error);
-                    const tbody = document.getElementById('clientesTableBody');
-                    tbody.innerHTML = '<tr><td colspan="5" class="p-3 text-center text-red-400">Erro ao carregar dados</td></tr>';
-                }
-            },
-
-            // CRUD VEÍCULOS - FUNCIONAL
-            async loadVeiculos() {
-                try {
-                    const { data: veiculos, error } = await supabaseClient
-                        .from('veiculos')
-                        .select('*')
-                        .order('created_at', { ascending: false });
-                    
-                    if (error) throw error;
-                    
-                    const tbody = document.getElementById('veiculosTableBody');
-                    tbody.innerHTML = '';
-                    
-                    if (!veiculos || veiculos.length === 0) {
-                        tbody.innerHTML = '<tr><td colspan="5" class="p-3 text-center text-gray-400">Nenhum veículo cadastrado</td></tr>';
-                        return;
-                    }
-                    
-                    veiculos.forEach(veiculo => {
-                        const tr = document.createElement('tr');
-                        tr.className = 'border-b border-gray-700 hover:bg-white hover:bg-opacity-5';
-                        tr.innerHTML = `
-                            <td class="p-3">${veiculo.marca} ${veiculo.modelo}</td>
-                            <td class="p-3">${veiculo.ano}</td>
-                            <td class="p-3">${veiculo.placa}</td>
-                            <td class="p-3">
-                                <span class="status-badge status-${veiculo.status}">${veiculo.status}</span>
-                            </td>
-                            <td class="p-3">
-                                <button onclick="CRMApp.openVeiculoModal('${veiculo.id}')" class="text-blue-400 hover:text-blue-300 mr-2">Editar</button>
-                                <button onclick="CRMApp.deleteVeiculo('${veiculo.id}')" class="text-red-400 hover:text-red-300">Excluir</button>
-                            </td>
-                        `;
-                        tbody.appendChild(tr);
-                    });
-                    
-                } catch (error) {
-                    console.error('Erro ao carregar veículos:', error);
-                    const tbody = document.getElementById('veiculosTableBody');
-                    tbody.innerHTML = '<tr><td colspan="5" class="p-3 text-center text-red-400">Erro ao carregar dados</td></tr>';
-                }
-            },
-
-            // CARREGAR ALUGUÉIS - FUNCIONAL
-            async loadAlugueis() {
-                try {
-                    const { data: alugueis, error } = await supabaseClient
-                        .from('alugueis')
-                        .select(`
-                            *,
-                            clientes (nome_completo),
-                            veiculos (marca, modelo, placa)
-                        `)
-                        .order('created_at', { ascending: false });
-                    
-                    if (error) throw error;
-                    
-                    const tbody = document.getElementById('alugueisTableBody');
-                    tbody.innerHTML = '';
-                    
-                    if (!alugueis || alugueis.length === 0) {
-                        tbody.innerHTML = '<tr><td colspan="7" class="p-3 text-center text-gray-400">Nenhum aluguel cadastrado</td></tr>';
-                        return;
-                    }
-                    
-                    alugueis.forEach(aluguel => {
-                        const tr = document.createElement('tr');
-                        tr.className = 'border-b border-gray-700 hover:bg-white hover:bg-opacity-5';
-                        tr.innerHTML = `
-                            <td class="p-3">${aluguel.clientes?.nome_completo || 'N/A'}</td>
-                            <td class="p-3">${aluguel.veiculos?.marca} ${aluguel.veiculos?.modelo} - ${aluguel.veiculos?.placa}</td>
-                            <td class="p-3">${new Date(aluguel.data_inicio).toLocaleDateString('pt-BR')}</td>
-                            <td class="p-3">${new Date(aluguel.data_fim).toLocaleDateString('pt-BR')}</td>
-                            <td class="p-3">R$ ${parseFloat(aluguel.valor_total || 0).toFixed(2)}</td>
-                            <td class="p-3">
-                                <span class="status-badge status-${aluguel.status}">${aluguel.status}</span>
-                            </td>
-                            <td class="p-3">
-                                ${aluguel.status === 'ativo' ? 
-                                    `<button onclick="CRMApp.finalizarAluguel('${aluguel.id}', '${aluguel.veiculo_id}')" class="text-green-400 hover:text-green-300 mr-2">Finalizar</button>` : 
-                                    ''}
-                                <button onclick="CRMApp.deleteAluguel('${aluguel.id}')" class="text-red-400 hover:text-red-300">Excluir</button>
-                            </td>
-                        `;
-                        tbody.appendChild(tr);
-                    });
-                    
-                } catch (error) {
-                    console.error('Erro ao carregar aluguéis:', error);
-                    const tbody = document.getElementById('alugueisTableBody');
-                    tbody.innerHTML = '<tr><td colspan="7" class="p-3 text-center text-red-400">Erro ao carregar dados</td></tr>';
-                }
-            },
-
-            // CARREGAR INFRAÇÕES - FUNCIONAL
-            async loadInfracoes() {
-                try {
-                    const { data: infracoes, error } = await supabaseClient
-                        .from('infracoes')
-                        .select(`
-                            *,
-                            alugueis (
-                                clientes (nome_completo),
-                                veiculos (marca, modelo, placa)
-                            )
-                        `)
-                        .order('created_at', { ascending: false });
-                    
-                    if (error) throw error;
-                    
-                    const tbody = document.getElementById('infracoesTableBody');
-                    tbody.innerHTML = '';
-                    
-                    if (!infracoes || infracoes.length === 0) {
-                        tbody.innerHTML = '<tr><td colspan="6" class="p-3 text-center text-gray-400">Nenhuma infração cadastrada</td></tr>';
-                        return;
-                    }
-                    
-                    infracoes.forEach(infracao => {
-                        const cliente = infracao.alugueis?.clientes?.nome_completo || 'N/A';
-                        const veiculo = infracao.alugueis?.veiculos ? 
-                            `${infracao.alugueis.veiculos.marca} ${infracao.alugueis.veiculos.modelo}` : 'N/A';
-                        
-                        const tr = document.createElement('tr');
-                        tr.className = 'border-b border-gray-700 hover:bg-white hover:bg-opacity-5';
-                        tr.innerHTML = `
-                            <td class="p-3">${cliente} - ${veiculo}</td>
-                            <td class="p-3">${infracao.tipo_infracao}</td>
-                            <td class="p-3">${new Date(infracao.data_infracao).toLocaleDateString('pt-BR')}</td>
-                            <td class="p-3">R$ ${parseFloat(infracao.valor || 0).toFixed(2)}</td>
-                            <td class="p-3">
-                                <span class="status-badge status-${infracao.status}">${infracao.status}</span>
-                            </td>
-                            <td class="p-3">
-                                ${infracao.status === 'pendente' ? 
-                                    `<button onclick="CRMApp.pagarInfracao('${infracao.id}')" class="text-green-400 hover:text-green-300 mr-2">Pagar</button>` : 
-                                    ''}
-                                <button onclick="CRMApp.deleteInfracao('${infracao.id}')" class="text-red-400 hover:text-red-300">Excluir</button>
-                            </td>
-                        `;
-                        tbody.appendChild(tr);
-                    });
-                    
-                } catch (error) {
-                    console.error('Erro ao carregar infrações:', error);
-                    const tbody = document.getElementById('infracoesTableBody');
-                    tbody.innerHTML = '<tr><td colspan="6" class="p-3 text-center text-red-400">Erro ao carregar dados</td></tr>';
-                }
-            },
-
-            // CARREGAR SELECTS PARA FORMS - FUNCIONAL
-            async loadClientesSelect() {
-                try {
-                    const { data: clientes } = await supabaseClient
-                        .from('clientes')
-                        .select('id, nome_completo')
-                        .eq('status', 'ativo');
-                    
-                    const select = document.getElementById('clienteSelect');
-                    select.innerHTML = '<option value="">Selecione um cliente</option>';
-                    
-                    clientes?.forEach(cliente => {
-                        const option = document.createElement('option');
-                        option.value = cliente.id;
-                        option.textContent = cliente.nome_completo;
-                        select.appendChild(option);
-                    });
-                    
-                } catch (error) {
-                    console.error('Erro ao carregar clientes:', error);
-                }
-            },
-
-            async loadVeiculosSelect() {
-                try {
-                    const { data: veiculos } = await supabaseClient
-                        .from('veiculos')
-                        .select('id, marca, modelo, placa')
-                        .eq('status', 'estacionamento');
-                    
-                    const select = document.getElementById('veiculoSelect');
-                    select.innerHTML = '<option value="">Selecione um veículo</option>';
-                    
-                    veiculos?.forEach(veiculo => {
-                        const option = document.createElement('option');
-                        option.value = veiculo.id;
-                        option.textContent = `${veiculo.marca} ${veiculo.modelo} - ${veiculo.placa}`;
-                        select.appendChild(option);
-                    });
-                    
-                } catch (error) {
-                    console.error('Erro ao carregar veículos:', error);
-                }
-            },
-
-            async loadAlugueisAtivos() {
-                try {
-                    const { data: alugueis } = await supabaseClient
-                        .from('alugueis')
-                        .select(`
-                            id,
-                            clientes (nome_completo),
-                            veiculos (marca, modelo, placa)
-                        `)
-                        .eq('status', 'ativo');
-                    
-                    const select = document.getElementById('aluguelSelect');
-                    select.innerHTML = '<option value="">Selecione um aluguel ativo</option>';
-                    
-                    alugueis?.forEach(aluguel => {
-                        const option = document.createElement('option');
-                        option.value = aluguel.id;
-                        option.textContent = `${aluguel.clientes?.nome_completo} - ${aluguel.veiculos?.marca} ${aluguel.veiculos?.modelo}`;
-                        select.appendChild(option);
-                    });
-                    
-                } catch (error) {
-                    console.error('Erro ao carregar aluguéis ativos:', error);
-                }
-            },
-
-            // FINALIZAR ALUGUEL - FUNCIONAL
-            async finalizarAluguel(aluguelId, veiculoId) {
-                this.showConfirmDialog(
-                    'Finalizar Aluguel',
-                    'Tem certeza que deseja finalizar este aluguel?',
-                    async () => {
-                        try {
-                            // Atualizar status do aluguel
-                            const { error: aluguelError } = await supabaseClient
-                                .from('alugueis')
-                                .update({ status: 'finalizado' })
-                                .eq('id', aluguelId);
-                            
-                            if (aluguelError) throw aluguelError;
-                            
-                            // Voltar veículo para estacionamento
-                            const { error: veiculoError } = await supabaseClient
-                                .from('veiculos')
-                                .update({ status: 'estacionamento' })
-                                .eq('id', veiculoId);
-                            
-                            if (veiculoError) throw veiculoError;
-                            
-                            await this.loadAlugueis();
-                            await this.loadDashboardStats();
-                            this.showMessage('Aluguel finalizado com sucesso!');
-                            
-                        } catch (error) {
-                            console.error('Erro ao finalizar aluguel:', error);
-                            this.showMessage('Erro ao finalizar aluguel: ' + error.message, 'error');
-                        }
-                    }
-                );
-            },
-
-            // PAGAR INFRAÇÃO - FUNCIONAL
-            async pagarInfracao(infracaoId) {
-                this.showConfirmDialog(
-                    'Confirmar Pagamento',
-                    'Confirmar o pagamento desta infração?',
-                    async () => {
-                        try {
-                            const { error } = await supabaseClient
-                                .from('infracoes')
-                                .update({ status: 'pago' })
-                                .eq('id', infracaoId);
-                            
-                            if (error) throw error;
-                            
-                            await this.loadInfracoes();
-                            this.showMessage('Pagamento registrado com sucesso!');
-                            
-                        } catch (error) {
-                            console.error('Erro ao atualizar infração:', error);
-                            this.showMessage('Erro ao atualizar infração: ' + error.message, 'error');
-                        }
-                    }
-                );
-            },
-
-            // FUNÇÕES DE DELETE - FUNCIONAL
-            async deleteCliente(id) {
-                this.showConfirmDialog(
-                    'Excluir Cliente',
-                    'Tem certeza que deseja excluir este cliente? Esta ação não pode ser desfeita.',
-                    async () => {
-                        try {
-                            const { error } = await supabaseClient
-                                .from('clientes')
-                                .delete()
-                                .eq('id', id);
-                            
-                            if (error) throw error;
-                            
-                            await this.loadClientes();
-                            await this.loadDashboardStats();
-                            this.showMessage('Cliente excluído com sucesso!');
-                            
-                        } catch (error) {
-                            console.error('Erro ao excluir cliente:', error);
-                            this.showMessage('Erro ao excluir cliente: ' + error.message, 'error');
-                        }
-                    }
-                );
-            },
-
-            async deleteVeiculo(id) {
-                this.showConfirmDialog(
-                    'Excluir Veículo',
-                    'Tem certeza que deseja excluir este veículo? Esta ação não pode ser desfeita.',
-                    async () => {
-                        try {
-                            const { error } = await supabaseClient
-                                .from('veiculos')
-                                .delete()
-                                .eq('id', id);
-                            
-                            if (error) throw error;
-                            
-                            await this.loadVeiculos();
-                            await this.loadDashboardStats();
-                            this.showMessage('Veículo excluído com sucesso!');
-                            
-                        } catch (error) {
-                            console.error('Erro ao excluir veículo:', error);
-                            this.showMessage('Erro ao excluir veículo: ' + error.message, 'error');
-                        }
-                    }
-                );
-            },
-
-            async deleteAluguel(id) {
-                this.showConfirmDialog(
-                    'Excluir Aluguel',
-                    'Tem certeza que deseja excluir este aluguel? Esta ação não pode ser desfeita.',
-                    async () => {
-                        try {
-                            const { error } = await supabaseClient
-                                .from('alugueis')
-                                .delete()
-                                .eq('id', id);
-                            
-                            if (error) throw error;
-                            
-                            await this.loadAlugueis();
-                            await this.loadDashboardStats();
-                            this.showMessage('Aluguel excluído com sucesso!');
-                            
-                        } catch (error) {
-                            console.error('Erro ao excluir aluguel:', error);
-                            this.showMessage('Erro ao excluir aluguel: ' + error.message, 'error');
-                        }
-                    }
-                );
-            },
-
-            async deleteInfracao(id) {
-                this.showConfirmDialog(
-                    'Excluir Infração',
-                    'Tem certeza que deseja excluir esta infração? Esta ação não pode ser desfeita.',
-                    async () => {
-                        try {
-                            const { error } = await supabaseClient
-                                .from('infracoes')
-                                .delete()
-                                .eq('id', id);
-                            
-                            if (error) throw error;
-                            
-                            await this.loadInfracoes();
-                            this.showMessage('Infração excluída com sucesso!');
-                            
-                        } catch (error) {
-                            console.error('Erro ao excluir infração:', error);
-                            this.showMessage('Erro ao excluir infração: ' + error.message, 'error');
-                        }
-                    }
-                );
-            },
-
-            // SISTEMA DE AUTENTICAÇÃO - FUNCIONAL
-            async checkAuth() {
-                try {
-                    console.log('Verificando autenticação...');
-                    
-                    const { data: { session }, error } = await supabaseClient.auth.getSession();
-                    
-                    if (error) {
-                        console.error('Erro ao verificar sessão:', error);
-                        this.redirectToLogin();
-                        return;
-                    }
-                    
-                    if (!session || !session.user) {
-                        console.log('Nenhuma sessão encontrada, redirecionando...');
-                        this.redirectToLogin();
-                        return;
-                    }
-                    
-                    console.log('Usuário autenticado:', session.user.email);
-                    this.currentUser = session.user;
-                    
-                    // Atualizar nome do usuário na interface
-                    const displayName = this.currentUser.user_metadata?.name || 
-                                       this.currentUser.user_metadata?.full_name || 
-                                       this.currentUser.email.split('@')[0];
-                                       
-                    document.getElementById('userName').textContent = displayName;
-                    
-                    // Carregar dados iniciais
-                    await this.loadDashboardStats();
-                    
-                } catch (error) {
-                    console.error('Erro ao verificar autenticação:', error);
-                    this.redirectToLogin();
-                }
-            },
-
-            // Função para redirecionar para login
-            redirectToLogin() {
-                console.log('Redirecionando para página de login...');
-                window.location.href = 'index.html';
-            },
-
-            // LOGOUT - MELHORADO
-            async logout() {
-                this.showConfirmDialog(
-                    'Sair do Sistema',
-                    'Tem certeza que deseja sair do sistema?',
-                    async () => {
-                        const logoutText = document.getElementById('logoutText');
-                        const logoutSpinner = document.getElementById('logoutSpinner');
-                        const logoutBtn = document.getElementById('logoutBtn');
-                        const logoutModal = document.getElementById('logoutLoadingModal');
-                        
-                        // Desabilitar botão e mostrar loading
-                        logoutBtn.disabled = true;
-                        logoutText.classList.add('hidden');
-                        logoutSpinner.classList.remove('hidden');
-                        
-                        // Mostrar modal de loading
-                        logoutModal.classList.remove('hidden');
-                        
-                        try {
-                            console.log('Iniciando logout...');
-                            
-                            const { error } = await supabaseClient.auth.signOut();
-                            
-                            if (error) {
-                                console.error('Erro do Supabase:', error);
-                                throw error;
-                            }
-                            
-                            console.log('Logout realizado com sucesso');
-                            this.currentUser = null;
-                            
-                            // Animação de fade out antes de redirecionar
-                            document.body.classList.add('fade-out');
-                            
-                            // Aguardar animação e redirecionar
-                            setTimeout(() => {
-                                window.location.href = 'index.html';
-                            }, 500);
-                            
-                        } catch (error) {
-                            console.error('Erro ao fazer logout:', error);
-                            
-                            // Esconder modal e restaurar botão em caso de erro
-                            logoutModal.classList.add('hidden');
-                            logoutBtn.disabled = false;
-                            logoutText.classList.remove('hidden');
-                            logoutSpinner.classList.add('hidden');
-                            
-                            this.showMessage('Erro ao fazer logout. Tente novamente.', 'error');
-                        }
-                    }
-                );
-            },
-
-            // TIMER DE SESSÃO
-            updateSessionTime() {
-                const now = new Date();
-                const diff = now - this.sessionStartTime;
-                const hours = Math.floor(diff / 3600000);
-                const minutes = Math.floor((diff % 3600000) / 60000);
-                const seconds = Math.floor((diff % 60000) / 1000);
-                
-                const sessionTimeEl = document.getElementById('sessionTime');
-                if (sessionTimeEl) {
-                    if (hours > 0) {
-                        sessionTimeEl.textContent = `${hours}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-                    } else {
-                        sessionTimeEl.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-                    }
-                }
-            }
-        };
-
-        // FORMULÁRIOS - FUNCIONAIS
-
-        // SALVAR/ATUALIZAR CLIENTE - FUNCIONAL
-        document.getElementById('clienteForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const submitBtn = document.getElementById('clienteSubmitText');
-            const spinner = document.getElementById('clienteSubmitSpinner');
-            const clienteId = document.getElementById('clienteId').value;
-
-            submitBtn.classList.add('hidden');
-            spinner.classList.remove('hidden');
-
-            try {
-                const clienteData = {
-                    nome_completo: document.getElementById('nomeCompleto').value,
-                    rg_cpf: document.getElementById('rgCpf').value,
-                    data_nascimento: document.getElementById('dataNascimento').value,
-                    plano: document.getElementById('plano').value,
-                    data_retirada: document.getElementById('dataRetirada').value || null,
-                    data_devolucao: document.getElementById('dataDevolucao').value || null,
-                    forma_pagamento: document.getElementById('formaPagamento').value,
-                    status: 'ativo',
-                    user_id: CRMApp.currentUser.id
-                };
-
-                let error;
-
-                if (clienteId) {
-                    // Atualizar cliente existente
-                    ({ error } = await supabaseClient
-                        .from('clientes')
-                        .update(clienteData)
-                        .eq('id', clienteId));
-                } else {
-                    // Inserir novo cliente
-                    ({ error } = await supabaseClient
-                        .from('clientes')
-                        .insert([clienteData]));
-                }
-                
-                if (error) throw error;
-                
-                CRMApp.closeModal('clienteModal');
-                await CRMApp.loadClientes();
-                await CRMApp.loadDashboardStats();
-                
-                const message = clienteId ? 'Cliente atualizado com sucesso!' : 'Cliente cadastrado com sucesso!';
-                CRMApp.showMessage(message);
-                
-            } catch (error) {
-                console.error('Erro ao salvar cliente:', error);
-                CRMApp.showMessage('Erro ao salvar cliente: ' + error.message, 'error');
-            } finally {
-                submitBtn.classList.remove('hidden');
-                spinner.classList.add('hidden');
-            }
-        });
-
-        // SALVAR/ATUALIZAR VEÍCULO - FUNCIONAL
-        document.getElementById('veiculoForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const submitBtn = document.getElementById('veiculoSubmitText');
-            const spinner = document.getElementById('veiculoSubmitSpinner');
-            const veiculoId = document.getElementById('veiculoId').value;
-
-            submitBtn.classList.add('hidden');
-            spinner.classList.remove('hidden');
-
-            try {
-                const veiculoData = {
-                    marca: document.getElementById('marca').value,
-                    modelo: document.getElementById('modelo').value,
-                    ano: parseInt(document.getElementById('ano').value),
-                    placa: document.getElementById('placa').value.toUpperCase(),
-                    cor: document.getElementById('cor').value,
-                    status: 'estacionamento',
-                    user_id: CRMApp.currentUser.id
-                };
-
-                let error;
-
-                if (veiculoId) {
-                    // Atualizar veículo existente
-                    ({ error } = await supabaseClient
-                        .from('veiculos')
-                        .update(veiculoData)
-                        .eq('id', veiculoId));
-                } else {
-                    // Inserir novo veículo
-                    ({ error } = await supabaseClient
-                        .from('veiculos')
-                        .insert([veiculoData]));
-                }
-                
-                if (error) throw error;
-                
-                CRMApp.closeModal('veiculoModal');
-                await CRMApp.loadVeiculos();
-                await CRMApp.loadDashboardStats();
-                
-                const message = veiculoId ? 'Veículo atualizado com sucesso!' : 'Veículo cadastrado com sucesso!';
-                CRMApp.showMessage(message);
-                
-            } catch (error) {
-                console.error('Erro ao salvar veículo:', error);
-                CRMApp.showMessage('Erro ao salvar veículo: ' + error.message, 'error');
-            } finally {
-                submitBtn.classList.remove('hidden');
-                spinner.classList.add('hidden');
-            }
-        });
-
-        // SALVAR ALUGUEL - FUNCIONAL
-        document.getElementById('aluguelForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const submitBtn = document.getElementById('aluguelSubmitText');
-            const spinner = document.getElementById('aluguelSubmitSpinner');
-
-            submitBtn.classList.add('hidden');
-            spinner.classList.remove('hidden');
-
-            try {
-                const aluguelData = {
-                    cliente_id: document.getElementById('clienteSelect').value,
-                    veiculo_id: document.getElementById('veiculoSelect').value,
-                    data_inicio: document.getElementById('dataInicio').value,
-                    data_fim: document.getElementById('dataFim').value,
-                    valor_total: parseFloat(document.getElementById('valorTotal').value),
-                    status: 'ativo',
-                    user_id: CRMApp.currentUser.id
-                };
-                
-                // Salvar aluguel
-                const { error: aluguelError } = await supabaseClient
-                    .from('alugueis')
-                    .insert([aluguelData]);
-                
-                if (aluguelError) throw aluguelError;
-                
-                // Atualizar status do veículo para 'alugado'
-                const { error: veiculoError } = await supabaseClient
-                    .from('veiculos')
-                    .update({ status: 'alugado' })
-                    .eq('id', aluguelData.veiculo_id);
-                
-                if (veiculoError) throw veiculoError;
-                
-                CRMApp.closeModal('aluguelModal');
-                await CRMApp.loadAlugueis();
-                await CRMApp.loadDashboardStats();
-                CRMApp.showMessage('Aluguel registrado com sucesso!');
-                
-            } catch (error) {
-                console.error('Erro ao salvar aluguel:', error);
-                CRMApp.showMessage('Erro ao salvar aluguel: ' + error.message, 'error');
-            } finally {
-                submitBtn.classList.remove('hidden');
-                spinner.classList.add('hidden');
-            }
-        });
-
-        // SALVAR INFRAÇÃO - FUNCIONAL
-        document.getElementById('infracaoForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            const submitBtn = document.getElementById('infracaoSubmitText');
-            const spinner = document.getElementById('infracaoSubmitSpinner');
-
-            submitBtn.classList.add('hidden');
-            spinner.classList.remove('hidden');
-
-            try {
-                const infracaoData = {
-                    aluguel_id: document.getElementById('aluguelSelect').value,
-                    tipo_infracao: document.getElementById('tipoInfracao').value,
-                    descricao: document.getElementById('descricaoInfracao').value || null,
-                    valor: parseFloat(document.getElementById('valorInfracao').value),
-                    data_infracao: document.getElementById('dataInfracao').value,
-                    status: 'pendente',
-                    user_id: CRMApp.currentUser.id
-                };
-                
-                const { error } = await supabaseClient
-                    .from('infracoes')
-                    .insert([infracaoData]);
-                
-                if (error) throw error;
-                
-                CRMApp.closeModal('infracaoModal');
-                await CRMApp.loadInfracoes();
-                await CRMApp.loadDashboardStats();
-                CRMApp.showMessage('Infração registrada com sucesso!');
-                
-            } catch (error) {
-                console.error('Erro ao salvar infração:', error);
-                CRMApp.showMessage('Erro ao salvar infração: ' + error.message, 'error');
-            } finally {
-                submitBtn.classList.remove('hidden');
-                spinner.classList.add('hidden');
-            }
-        });
-
-        // INICIALIZAÇÃO
-        document.addEventListener('DOMContentLoaded', () => {
-            console.log('Sistema CRM inicializando...');
-
-            // Navegação sidebar
-            document.querySelectorAll('.sidebar-item').forEach(item => {
-                item.addEventListener('click', (e) => {
-                    const section = e.currentTarget.dataset.section;
-                    CRMApp.showSection(section);
-                });
-            });
-
-            // Logout
-            document.getElementById('logoutBtn').addEventListener('click', () => {
-                CRMApp.logout();
-            });
-
-            // Verificar autenticação
-            CRMApp.checkAuth();
-
-            // Iniciar timer
-            setInterval(() => CRMApp.updateSessionTime(), 1000);
-
-            // Monitorar mudanças de autenticação
-            supabaseClient.auth.onAuthStateChange((event, session) => {
-                console.log('Auth state changed:', event, session ? 'Session exists' : 'No session');
-                
-                if (event === 'SIGNED_OUT' || !session) {
-                    console.log('Usuário deslogado, redirecionando...');
-                    CRMApp.currentUser = null;
-                    CRMApp.redirectToLogin();
-                }
-                
-                if (event === 'SIGNED_IN' && session) {
-                    console.log('Usuário logado:', session.user.email);
-                    CRMApp.currentUser = session.user;
-                }
-            });
-
-            console.log('Sistema CRM carregado com sucesso!');
-        });
-    </script>
 </body>
+
 </html>
