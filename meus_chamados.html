@@ -7,8 +7,19 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white p-6">
-
-  <h1 class="text-3xl font-bold mb-6 text-center">📋 Meus Chamados</h1>
+<!-- Navbar -->
+  <header class=" top-0 left-0 w-full bg-transparent z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+      <a><img src="img/Logo - Fatec - Motor Control.png" class="max-w-xs max-h-12"></a>
+      <div class="flex items-center space-x-6">
+        <a href="index.html" class="text-white text-lg py-2 px-4 cursor-pointer">Início</a>
+        <a href="pre_chamado.html" class="text-white text-lg py-2 px-4 cursor-pointer">Chamado</a>
+        <a href="login.html"
+          class="cursor-pointer border-none rounded-[30px] p-2 px-4 bg-[#FBFEF9] transition delay-10 duration-300 ease-in-out hover:shadow-lg shadow-blue-500/50 text-black hover:bg-[#D2EFFF] hover:scale-110 hover:text-[#0E79B2]">Dashboard</a>
+      </div>
+    </div>
+  </header>
+  <h1 class="text-3xl pt-20 font-bold mb-6 text-center">📋 Meus Chamados</h1>
 
   <div id="listaChamados" class="space-y-4 max-w-3xl mx-auto"></div>
 

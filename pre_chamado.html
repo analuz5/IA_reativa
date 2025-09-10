@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abertura de Chamado</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <link rel="icon" type="image/x-icon" href="img/FAVICON(1).ico">
+
     <style>
         body {
             background-color: #191923;
@@ -60,48 +63,67 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
+
 <body class="min-h-screen flex items-center justify-center p-4 relative">
-    
-    <!-- Imagem de fundo -->
-    <img src="img/Gradient.png" alt="" class="background-image flex items-end">
 
-    <!-- Container principal -->
-    <div class="relative z-10 w-full">
-        <div class="max-w-3xl mx-auto">
-            <!-- Card de Abertura de Chamado -->
-            <div class="glass-card rounded-2xl p-8 fade-in text-white">
-                <div class="text-center mb-6">
-                    <h2 class="text-3xl font-bold mb-2">Abertura de Chamado</h2>
-                    <p class="text-gray-300">Digite seu problema e veja soluções sugeridas</p>
-                </div>
-
-                <!-- Campo do problema -->
-                <input 
-                    id="tituloProblema" 
-                    type="text" 
-                    placeholder="Ex: Wifi não conecta" 
-                    class="glass-input w-full px-4 py-3 rounded-lg text-white placeholder-gray-400 mb-4"
-                >
-
-                <!-- Botão buscar -->
-                <button 
-                    id="btnBuscar"
-                    class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 
-                           text-white font-semibold py-3 rounded-lg transition-all duration-200 transform hover:scale-105">
-                    Buscar soluções
-                </button>
-
-                <!-- Resultado -->
-                <div id="resultado" class="mt-6"></div>
+    <!-- Navbar -->
+    <header class="fixed top-0 left-0 w-full bg-transparent z-50">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+            <a><img src="img/Logo - Fatec - Motor Control.png" class="max-w-xs max-h-15"></a>
+            <div class="flex items-center space-x-6">
+                <a href="index.html" class="text-white text-lg py-2 px-4 cursor-pointer">Início</a>
+                <a href="pre_chamado.html" class="text-white text-lg py-2 px-4 cursor-pointer">Chamado</a>
+                <a href="login.html"
+                    class="cursor-pointer border-none rounded-[30px] p-2 px-4 bg-[#FBFEF9] transition delay-10 duration-300 ease-in-out hover:shadow-lg shadow-blue-500/50 text-black hover:bg-[#D2EFFF] hover:scale-110 hover:text-[#0E79B2]">Dashboard</a>
             </div>
         </div>
-    </div>
+    </header>
 
-    <script src="js/script.js"></script>
+    <!-- Espaço para não sobrepor -->
+
+    <div class="pt-20 max-w-6xl mx-auto p-6">
+        <!-- Imagem de fundo -->
+        <img src="img/Gradient.png" alt="" class="background-image flex items-end">
+
+        <!-- Container principal -->
+        <div class="relative z-10 w-full">
+            <div class="max-w-3xl mx-auto">
+                <!-- Card de Abertura de Chamado -->
+                <div class="glass-card rounded-2xl p-8 fade-in text-white">
+                    <div class="text-center mb-6">
+                        <h2 class="text-3xl font-bold mb-2">Abertura de Chamado</h2>
+                        <p class="text-gray-300">Digite seu problema e veja soluções sugeridas</p>
+                    </div>
+
+                    <!-- Campo do problema -->
+                    <input id="tituloProblema" type="text" placeholder="Ex: Wifi não conecta"
+                        class="glass-input w-full px-4 py-3 rounded-lg text-white placeholder-gray-400 mb-4">
+
+                    <!-- Botão buscar -->
+                    <button id="btnBuscar" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 
+                 text-white font-semibold py-3 rounded-lg transition-all duration-200 transform hover:scale-105">
+                        Buscar soluções
+                    </button>
+
+                    <!-- Resultado -->
+                    <div id="resultado" class="mt-6"></div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/script.js"></script>
 </body>
+
 </html>
